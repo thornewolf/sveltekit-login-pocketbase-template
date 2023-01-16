@@ -28,9 +28,9 @@
 				tabindex="0"
 				class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
 			>
-				<ul class="menu menu-horizontal px-1">
-					<li>Item 1</li>
-					<li>Item 2</li>
+				<ul class="menu menu-vertical px-1">
+					<li><a href="/">Item 1</a></li>
+					<li><a href="/">Item 2</a></li>
 				</ul>
 			</ul>
 		</div>
