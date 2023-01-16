@@ -20,7 +20,14 @@ export const actions: Actions = {
         try {
             await locals.pb.collection('users').authWithPassword(email, password);
         } catch (err) {
-            return fail(400, { incorrect: true, email });
+            console.log(err);
+            // @ts-expect-error
+            if (err?.originalError?.cause?.code == "ECONNREFUSED") {
+                return fail(500, { error: true, email });
+            };
+            if (err?.data?.code == 400) {
+                return fail(400, { incorrect: true, email });
+            }
         }
         throw redirect(303, '/');
     }

@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let data;
+	export let data: App.PageData;
 </script>
 
 <div class="flex h-screen w-screen gap-2 p-2">

@@ -16,9 +16,16 @@ export const actions: Actions = {
             const { token, user } = await locals.pb.collection('users').create(payload);
         } catch (err) {
             console.log('Error:', err);
+            // @ts-expect-error
+            if (err.data.code == 400) {
+                return {
+                    error: true,
+                    message: "Invalid Email / Account already exists. Please correct and try again."
+                };
+            }
             return {
                 error: true,
-                payload: payload
+                message: "An unknown error occurred. Please try again."
             };
         }
         throw redirect(303, '/');
